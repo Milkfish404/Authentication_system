@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+            *{
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                --green: white
+            }
+            body{
+                background-color: #333333;
+                font-family: 'poppins';
+            }
+            h1{
+                color: gray;
+            }
+            section{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            .container{
+                width: 100rem;
+                background-color: #2b2b2b;
+                height: 700px;
+                display: flex;
+                overflow: hidden;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            input{
+                width: 25rem;
+                padding: 13px;
+                background-color: #1e1e1e;
+                border-radius: 10px;
+                border: 2px solid gray;
+                color: white;
+                font-family: 'poppins'
+            }
+            input::placeholder{
+                color: #ffffff;
+                font-family: 'poppins';
+            }
+            .login{
+                border-radius: 20px;
+                background-color: transparent;
+                font-family: 'poppins';
+                color: white;
+                cursor: pointer;
+            }
+            .login:hover{
+                background-color: white;
+                color: black;
+                transition: 0.4s;
+                filter: drop-shadow(0px 0px 7px #fff)
+            }
+            h3{
+                color: white;
+                font-weight: 3200; 
+                text-align: center;
+                font-size: 2rem;
+            }
+            .bx-user{
+                color: white;
+                font-size: 150px;
+                width: 100%;
+                text-align: center;
+                filter: drop-shadow(0px 0px 7px);
+            }
+            .user{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                height: 100%;
+            }
+            img{  
+                width: 40rem;
+                z-index: 0;
+            }
+            
+            .container-2{
+                background-color: #212121;
+                width: 50%;
+                overflow: hidden;
+
+            }
+            .img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .start{
+                color: #dedede;
+                font-weight: 500;
+                font-size: 5rem;
+                z-index: 1;
+                position: absolute;
+                margin-top: 10rem;
+                text-shadow: 0px 0px 7px;
+            }
+            a{
+                text-decoration: none;
+                color: cyan;
+                text-shadow: 0px 0px 7px;
+            }
+            .sign{
+                color: white;
+                width: 20rem;
+                text-align: center;
+                margin-top: 20px;
+            }
+            @media (max-width: 976px){
+                .start{
+                    display: none;
+                }
+                .container-2{
+                    width: 0px;
+                    background-color: transparent;
+                    overflow: visible;                    
+                }
+                body{
+                    background-color: #2b2b2b;
+                }
+                img{
+                    filter: blur(2px)
+                }
+                .user{
+                    z-index: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
+            @media (max-width: 425px){
+                input{
+                    width: 90vmin;
+                }
+                .sign{
+                    width: 90vmin;
+                    max-width: 400px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+        </nav>
+        <section>
+            <div class="container">
+                <div class="user">
+                    <i class='bx bx-user'></i>
+                    <form  method="POST" action="{{ url_for('login') }}" >
+                        <h3><span style="color: gray;">SIGN IN</span> <span style="filter: drop-shadow(0px 0px 7px); color: var(--green);">TO YOUR <br> ACCOUNT</span></h3>
+                        <input type="text" id="username" name="username " required autocomplete="off" placeholder="Username">
+                        <input type="password" id="password" name="password" required autocomplete="off" placeholder="Password">
+                        <input class="login" type="submit" value="Login">
+                    </form>
+                    <p class="sign">by signing in to this account you agree to our <a href="#">terms and conditions</a> <br><br>no account? <a href="/create">create account</a></p>
+                </div>
+                <div class="container-2">
+                    <p class="start">GET<br> STARTED</p>
+                    <div class="img">
+                        <img  src="{{ url_for('static', filename='flower.png')}}">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
